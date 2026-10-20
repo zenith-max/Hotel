@@ -20,6 +20,14 @@ const formatPrice = (value) =>
     maximumFractionDigits: 2,
   }).format(Number(value || 0));
 
+const getFrontendBaseUrl = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin;
+  }
+
+  return 'https://hotel-frontend-0tso.onrender.com';
+};
+
 const AdminDashboardPage = ({ user, setUser }) => {
   const navigate = useNavigate();
   const [overview, setOverview] = useState(null);
