@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
 import env from './env.js';
 
 let memoryServer = null;
@@ -19,6 +18,7 @@ const connectDB = async () => {
     }
 
     try {
+      const { MongoMemoryServer } = await import('mongodb-memory-server');
       memoryServer = await MongoMemoryServer.create({
         binary: { version: '7.0.14' },
       });
