@@ -10,11 +10,11 @@ dotenv.config();
 
 const env = {
   PORT: Number(process.env.PORT || 5000),
-  CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:5173',
+  CLIENT_URL: process.env.CLIENT_URL || 'https://hotel-frontend-0tso.onrender.com',
   MONGODB_URI: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/nfc_restaurant',
   JWT_SECRET: process.env.JWT_SECRET || 'development-secret-change-me',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
-  NODE_ENV: process.env.NODE_ENV || 'development',
+  NODE_ENV: process.env.NODE_ENV || 'production',
   UPLOAD_DIR: process.env.UPLOAD_DIR || 'server/uploads',
   COOKIE_SECURE: String(process.env.COOKIE_SECURE || 'false') === 'true',
   COOKIE_SAME_SITE: process.env.COOKIE_SAME_SITE || 'lax',

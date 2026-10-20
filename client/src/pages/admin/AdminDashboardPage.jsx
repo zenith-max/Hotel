@@ -372,6 +372,7 @@ const AdminDashboardPage = ({ user, setUser }) => {
                   const tableOrders = orders.filter((order) => order.table?._id === table._id);
                   const activeTableOrders = tableOrders.filter((order) => order.status !== 'Completed');
                   const isSelected = selectedTableId === table._id;
+                  const tableUrl = `${getFrontendBaseUrl()}/t/${table.token}`;
 
                   return (
                     <div key={table._id} className="rounded-2xl border border-slate-200 p-3">
@@ -382,9 +383,9 @@ const AdminDashboardPage = ({ user, setUser }) => {
                         </div>
                       </div>
 
-                      <div className="mt-3 rounded-xl bg-slate-50 p-3 text-xs text-slate-600 break-all">{`http://localhost:5173/t/${table.token}`}</div>
+                      <div className="mt-3 rounded-xl bg-slate-50 p-3 text-xs text-slate-600 break-all">{tableUrl}</div>
                       <div className="mt-3 flex justify-center rounded-xl bg-white p-2">
-                        <QRCodeSVG value={`http://localhost:5173/t/${table.token}`} size={96} />
+                        <QRCodeSVG value={tableUrl} size={96} />
                       </div>
 
                       {activeTableOrders.length > 0 && (
