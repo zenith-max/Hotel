@@ -3,6 +3,7 @@ import MenuCategory from '../models/MenuCategory.js';
 import MenuItem from '../models/MenuItem.js';
 import Table from '../models/Table.js';
 import Order from '../models/Order.js';
+import env from '../config/env.js';
 import { generateToken } from '../utils/tableToken.js';
 
 export const getRestaurantProfile = async (req, res) => {
@@ -144,7 +145,7 @@ export const createTable = async (req, res) => {
     active: true,
   });
 
-  return res.status(201).json({ success: true, table, publicUrl: `${process.env.CLIENT_URL || 'http://localhost:5173'}/t/${table.token}` });
+  return res.status(201).json({ success: true, table, publicUrl: `${env.CLIENT_URL}/t/${table.token}` });
 };
 
 export const regenerateTableToken = async (req, res) => {
@@ -161,7 +162,7 @@ export const regenerateTableToken = async (req, res) => {
   table.token = token;
   await table.save();
 
-  return res.json({ success: true, table, publicUrl: `${process.env.CLIENT_URL || 'http://localhost:5173'}/t/${token}` });
+  return res.json({ success: true, table, publicUrl: `${env.CLIENT_URL}/t/${token}` });
 };
 
 export const getOrders = async (req, res) => {
