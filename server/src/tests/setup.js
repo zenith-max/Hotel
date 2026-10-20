@@ -6,10 +6,8 @@ let mongoServer;
 export const setupTestDB = async () => {
   process.env.NODE_ENV = 'test';
 
-  process.env.MONGOMS_VERSION = '4.4.29';
-  mongoServer = await MongoMemoryServer.create({
-    binary: { version: '4.4.29' },
-  });
+  process.env.MONGOMS_VERSION = '7.0.14';
+  mongoServer = await MongoMemoryServer.create();
   const uri = mongoServer.getUri();
   process.env.MONGODB_URI = uri;
 
